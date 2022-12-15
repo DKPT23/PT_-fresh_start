@@ -14,7 +14,7 @@ Add-Content -Path $loginScriptPath -Value 'wsl --install -d kali-linux'
 Add-Content -Path $loginScriptPath -Value 'wsl --setdefault Kali-linux'
 Add-Content -Path $loginScriptPath -Value 'kali config --default-user root'
 Add-Content -Path $loginScriptPath -Value 'wsl apt update'
-Add-Content -Path $loginScriptPath -Value 'wsl apt install -y kali-linux-headless seclists'
+Add-Content -Path $loginScriptPath -Value 'wsl apt install -y kali-linux-headless seclists nuclei'
 Add-Content -Path $loginScriptPath -Value 'DEL "%~f0"'
 
 #restart the computer to enable the kali installation
