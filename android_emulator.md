@@ -1,9 +1,10 @@
 #install emulator
+```powershell
 choco install android-sdk
 
 sdkmanager "platform-tools" "platforms;android-28"
 sdkmanager "system-images;android-28;google_apis;x86_64"
-sdkmanager --licenses
+for($i=0;$i -lt 30;$i++) { $response += "y`n"}; $response | sdkmanager --licenses
 
 echo "no" | avdmanager create avd -n Android28 -k "system-images;android-28;google_apis;x86_64"
 
@@ -17,3 +18,4 @@ adb root #restart adb as root (necessary for adding certificate)
 adb remount # remount /system partition in writable mode in order to write  certificate
 adb push .\9a5ba575.0 /system/etc/security/cacerts/
 
+```
