@@ -3,7 +3,8 @@ wsl --install -d kali-linux
 wsl --setdefault Kali-linux 
 kali config --default-user root
 wsl apt update
-wsl apt install -y kali-linux-headless seclists nuclei
+wsl apt install -y kali-linux-headless seclists nuclei golang-go tmux neovim
+wsl chsh /bin/zsh
 
 Set-Location C:Android\Sdk\tools\bin
 
