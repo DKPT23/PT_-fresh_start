@@ -9,7 +9,7 @@ wsl --install
 
 $loginScriptPath = "$env:USERPROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\wsl-install-kali.bat"
 
-Add-Content -Path $loginScriptPath -Value 'powershell  iex ((New-Object System.Net.WebClient).DownloadString("https://github.com/DKPT23/PT_fresh_start/raw/2file/script.ps1"));'
+Add-Content -Path $loginScriptPath -Value 'powershell  iex ((New-Object System.Net.WebClient).DownloadString("https://github.com/DKPT23/PT_fresh_start/raw/2file/script2.ps1"));'
 Add-Content -Path $loginScriptPath -Value 'DEL "%~f0"'
 
 Restart-Computer 
