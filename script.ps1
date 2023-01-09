@@ -5,8 +5,8 @@ Set-ExecutionPolicy Bypass
 #choco install -y virtualbox slack burp-suite-pro-edition forticlientvpn Notepadplusplus 7zip git adb go Firefox openssl microsoft-windows-terminal docker-desktop greenshot nmap GoogleChrome wireshark python javaruntime android-sdk powertoys obsidian
 #choco install -y genymotion --ignore-checksums
 #wsl --install
-choco install android-sdk docker-desktop
-choco install wsl2 --params "/Version:2 /Retry:true"
+choco install -y android-sdk docker-desktop
+choco install -y --exit-when-reboot-detected wsl2 --params "/Version:2 /Retry:true"
 choco install wsl-kalilinux 
 
 
