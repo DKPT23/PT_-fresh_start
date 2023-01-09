@@ -4,7 +4,7 @@ The script also installs WSL2 and Kali-linux
 
 ##
 ```powershell
-set-executionpolicy bypass; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/DKPT23/PT_fresh_start/raw/2file/script.ps1'));
+set-executionpolicy bypass; iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/DKPT23/PT_fresh_start/raw/choco/script.ps1'));
 
 ```
 
