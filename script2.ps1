@@ -1,9 +1,9 @@
-cmd wsl --set-default-version 2
-cmd wsl --install -d kali-linux
+#cmd wsl --set-default-version 2
+#cmd wsl --install -d kali-linux
 cmd wsl --setdefault Kali-linux 
 cmd kali config --default-user root
-cmd wsl apt update
-cmd wsl apt install -y kali-linux-headless seclists nuclei golang-go tmux neovim
+cmd wsl DEBIAN_FRONTEND=noninteractive apt update
+cmd wsl DEBIAN_FRONTEND=noninteractive apt install -y kali-linux-headless seclists nuclei golang-go tmux neovim zsh
 cmd wsl chsh /bin/zsh
 
 
