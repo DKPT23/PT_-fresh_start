@@ -7,6 +7,7 @@ winget install PortSwigger.BurpSuite.Professional 9PKR34TNCV07 --accept-package-
 
 choco install -y --ignore-checksums gsudo genymotion virtualbox slack forticlientvpn Notepadplusplus 7zip git adb go Firefox openssl microsoft-windows-terminal docker-desktop greenshot nmap GoogleChrome wireshark python javaruntime powertoys fzf
 
+Install-PackageProvider -Name NuGet -Force
 Install-Module PSReadLine -Force
 Install-Module PSFzf -Force
 import-module PSReadLine
