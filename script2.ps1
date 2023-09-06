@@ -3,9 +3,14 @@
 
 choco feature enable -n allowGlobalConfirmation
 
-winget install PortSwigger.BurpSuite.Professional 9PKR34TNCV07 --accept-package-agreements --accept-source-agreements
 
-choco install -y --ignore-checksums gsudo genymotion virtualbox slack forticlientvpn Notepadplusplus 7zip git adb go Firefox openssl microsoft-windows-terminal docker-desktop greenshot nmap GoogleChrome wireshark python javaruntime powertoys fzf
+choco install -y --ignore-checksums winget-cli gsudo  slack forticlientvpn Notepadplusplus 7zip git adb go Firefox openssl microsoft-windows-terminal  greenshot nmap GoogleChrome  python javaruntime powertoys fzf
+
+winget install PortSwigger.BurpSuite.Professional 9PKR34TNCV07 --accept-package-agreements --accept-source-agreements
+function install-extras{
+  choco install -y ignore-checksums virtualbox genymotion wireshark docker-desktop
+  } 
+
 
 Install-PackageProvider -Name NuGet -Force
 Install-Module PSReadLine -Force
@@ -19,6 +24,5 @@ kali config --default-user root
 wsl apt update
 wsl apt install -y kali-linux-headless seclists nuclei golang-go
 wsl chsh -s /bin/zsh
-
-
+wsl sed -i 's/#\[ "\$EUID"/\[ "\$EUID"/' ~/.zshrc
 
