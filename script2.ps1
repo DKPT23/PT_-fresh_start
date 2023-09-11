@@ -19,10 +19,7 @@ import-module PSReadLine
 import-module PSFzf
 iwr https://github.com/yechielw/windows-deploy/raw/main/profile.ps1 -outfile $PROFILE
 
+
 wsl --setdefault Kali-linux
 kali config --default-user root
-wsl apt update
-wsl apt install -y kali-linux-headless seclists nuclei golang-go
-wsl chsh -s /bin/zsh
-wsl sed -i 's/#\[ "\$EUID"/\[ "\$EUID"/' ~/.zshrc
-
+wsl sh $("curl -s https://github.com/DKPT23/PT_fresh_start/raw/2file/wsl.sh")
