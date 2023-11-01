@@ -22,4 +22,5 @@ iwr https://github.com/yechielw/windows-deploy/raw/main/profile.ps1 -outfile $PR
 
 wsl --setdefault Kali-linux
 kali config --default-user root
+wsl --set-default-version 2
 wsl sh $("curl -s https://github.com/DKPT23/PT_fresh_start/raw/2file/wsl.sh")
