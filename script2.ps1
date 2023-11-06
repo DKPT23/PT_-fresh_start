@@ -19,8 +19,15 @@ import-module PSReadLine
 import-module PSFzf
 iwr https://github.com/yechielw/windows-deploy/raw/main/profile.ps1 -outfile $PROFILE
 
+start powershell {kali}
+
+while (-not (Test-Path "\\wsl.localhost\kali-linux")) {
+    # Sleep for 30 seconds
+    Start-Sleep -Seconds 30
+}
 
 wsl --setdefault Kali-linux
+wsl --set-default-user root -d kali-linux
 kali config --default-user root
 wsl --set-default-version 2
 wsl sh $("curl -s https://github.com/DKPT23/PT_fresh_start/raw/2file/wsl.sh")
