@@ -9,7 +9,8 @@ set-executionpolicy bypass; iex ((New-Object System.Net.WebClient).DownloadStrin
 ```
 
 ## WSL only using ansible playbook
-
+```bash
 sudo apt install ansible
 
 wget https://github.com/DKPT23/PT_fresh_start/raw/2file/kali-ansible.yml && ansible-playbook kali-ansible.yml 
+```
