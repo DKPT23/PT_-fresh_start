@@ -1,0 +1,75 @@
+---
+- name: Install Security Tools Locally
+  hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Update APT Packages
+      apt:
+
+        update_cache: yes
+
+    - name: Install Required Packages
+      apt:
+        name:
+          - kali-linux-headless
+          - seclists
+          - golang-go
+          - neovim
+          - python3-pip
+          - python3-venv
+          - pipx
+          - openfortivpn
+          - git
+          - masscan
+        state: present
+
+    - name: Install Python Packages
+
+      community.general.pipx:
+        name:
+
+        source:
+          - git+https://github.com/Pennyw0rth/NetExec
+          - git+https://github.com/login-securite/DonPAPI
+          - git+https://github.com/blacklanternsecurity/badsecrets
+          - git+https://github.com/RhinoSecurityLabs/pacu
+          - git+https://github.com/cddmp/enum4linux-ng
+          - git+https://github.com/dirkjanm/BloodHound.py
+
+    - name: Install Go Packages
+      shell: |
+        go install github.com/projectdiscovery/httpx/cmd/httpx@latest
+        go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+        go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+        go install github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest
+
+
+    - name: Change Shell to Zsh
+      shell: chsh -s /usr/bin/zsh
+
+
+    - name: Configure Zsh
+
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.zshrc"
+        line: 'export PATH="/opt:$HOME/.local/bin:$HOME/go/bin:$PATH"'
+        insertafter: EOF
+        state: present
+      become_user: "{{ ansible_env.USER }}"
+      become_method: su
+
+  
+    - name: Replace the line in .zshrc
+      
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.zshrc"
+        regexp: '    #\[ "\$EUID"'
+        line: '[ "$EUID" -eq 0 ] && prompt_symbol=💀'
+    
+    - name: clone dotfiles
+      git:
+        repo: git@github.com:yechielw/.cfg.git
+        dest: "{{ ansible_env.HOME }}/.cfgdots"
+        bare: true
